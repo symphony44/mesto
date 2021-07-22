@@ -1,0 +1,19 @@
+.elements {
+    width: calc(100% - 400px);
+    margin: 50px auto 67px;
+}
+
+
+
+@media screen and (max-width: 1280px) {
+    .elements {
+        width: calc(100% - 200px);
+    }
+}
+
+
+@media screen and (max-width: 425px) {
+    .elements {
+        margin-bottom: 48px;
+    }
+}
