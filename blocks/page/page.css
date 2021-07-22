@@ -5,4 +5,7 @@
     font-family: 'Inter', 'Arial', sans-serif;
     margin: 0 auto;
     text-rendering: optimizeLegibility;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }

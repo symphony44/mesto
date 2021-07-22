@@ -1,6 +1,7 @@
 .footer {
     width: calc(100% - 400px);
     margin: 0 auto 60px; 
+    flex-shrink: 0;
 }
 
 @media screen and (max-width: 768px) {
