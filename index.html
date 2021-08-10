@@ -26,66 +26,53 @@
             <button class="button profile__add-button" type="button" aria-label="кнопка добавления новой карточки"></button>
         </section>
         <section class="elements">
-            <ul class="elements__items">
-                <li class="elements__item">
-                    <img class="elements__photo" src="images/karachaevsk_photo.jpg" alt="фотография замка в Карачаевске">
-                    <div class="elements__description">
-                        <h2 class="elements__name">Карачаевск</h2>
-                        <button class="button elements__button" type="button" aria-label="кнопка лайка"></button>
-                    </div>
-                </li>
-                <li class="elements__item">
-                    <img class="elements__photo" src="images/elbrus_photo.jpg" alt="фотография горы Эльбрус">
-                    <div class="elements__description">
-                        <h2 class="elements__name">Гора Эльбрус</h2>
-                        <button class="button elements__button" type="button" aria-label="кнопка лайка"></button>
-                    </div>
-                </li>
-                <li class="elements__item">
-                    <img class="elements__photo" src="images/dombay_photo.jpg" alt="фотография гор Домбая">
-                    <div class="elements__description">
-                        <h2 class="elements__name">Домбай</h2>
-                        <button class="button elements__button" type="button" aria-label="кнопка лайка"></button>
-                    </div>
-                </li>
-                <li class="elements__item">
-                    <img class="elements__photo" src="images/elbrus_photo.jpg" alt="фотография горы Эльбрус">
-                    <div class="elements__description">
-                        <h2 class="elements__name">Гора Эльбрус</h2>
-                        <button class="button elements__button" type="button" aria-label="кнопка лайка"></button>
-                    </div>
-                </li>
-                <li class="elements__item">
-                    <img class="elements__photo" src="images/dombay_photo.jpg" alt="фотография гор Домбая">
-                    <div class="elements__description">
-                        <h2 class="elements__name">Домбай</h2>
-                        <button class="button elements__button" type="button" aria-label="кнопка лайка"></button>
-                    </div>
-                </li>
-                <li class="elements__item">
-                    <img class="elements__photo" src="images/karachaevsk_photo.jpg" alt="фотография Карачаево-Черкесского региона">
-                    <div class="elements__description">
-                        <h2 class="elements__name">Карачаево-Черкессия</h2>
-                        <button class="button elements__button" type="button" aria-label="кнопка лайка"></button>
-                    </div>
-                </li>
-            </ul>
+            <ul class="elements__items"></ul>
         </section>
     </main>
     <footer class="footer">
         <p class="footer__copyright">&copy; 2021 Mesto Russia</p>
     </footer>
-    <div class="popup">
+    <div class="popup popup-edit">
         <div class="popup__container">
             <h2 class="popup__container-title">Редактировать профиль</h2>
-            <form class="popup__form" name="popup__form">
+            <form class="popup__form" id="popup__form-edit">
                 <input class="popup__input popup__input_type_name" required placeholder="Это обязательное поле">
-                <input class="popup__input popup__input_type_description" required placeholder="Это обязательное поле">
+                <input class="popup__input popup__input_type_description" required placeholder="И это обязательное поле">
                 <button class="button popup__save-button" type="submit" aria-label="кнопка сохранения редактирования профиля">Сохранить</button>
             </form>
-            <button class="button popup__close-button" type="button" aria-label="кнопка закрытия редактирования профиля"></button>
+            <button class="button popup__close-button popup-edit__close-button" type="button" aria-label="кнопка закрытия редактирования профиля"></button>
         </div>
     </div>
+    <div class="popup popup-add">
+        <div class="popup__container">
+            <h2 class="popup__container-title">Новое место</h2>
+            <form class="popup__form" id="popup__form-add">
+                <input class="popup__input popup__input_type_place" required placeholder="Название">
+                <input class="popup__input popup__input_type_link"  placeholder="Ссылка на картинку">
+                <button class="button popup__create-button" type="submit" aria-label="кнопка создания новой карточки">Создать</button>
+            </form>
+            <button class="button popup__close-button popup-add__close-button" type="button" aria-label="кнопка закрытия добавления карточки"></button>
+        </div>
+    </div>
+    <div class="popup popup-photo">
+        <div class="popup__container popup-photo__container">
+            <button class="button popup-photo__close-button popup__close-button" type="button"></button>
+            <figure class="popup-photo__figure">
+                <img class="popup-photo__photo" src="" alt="">
+                <figcaption class="popup-photo__caption"></figcaption>
+            </figure>
+        </div>
+    </div>
+    <template id="element-template">
+        <li class="elements__item">
+            <button class="button elements__delete-button" type="button" aria-label="кнопка удаления карточки"></button>
+            <img class="elements__photo" src="#" alt="">
+            <div class="elements__description">
+                <h2 class="elements__name"></h2>
+                <button class="button elements__like-button" type="button" aria-label="кнопка лайка"></button>
+            </div>
+        </li>
+    </template>
     <script src="./scripts/script.js"></script>
 </body>
 </html>

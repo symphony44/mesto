@@ -1,5 +1,4 @@
-.elements__button {
-    margin: 0;
+.elements__like-button {
     background-image: url(../../../images/elements_like.svg);
     background-position: center;
     background-repeat: no-repeat;
@@ -10,7 +9,7 @@
     cursor: pointer;
 }
 
-.elements__button:hover {
+.elements__like-button:hover {
     transition: .2s linear;
     opacity: .5;
 }
