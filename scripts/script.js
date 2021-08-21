@@ -83,10 +83,12 @@ function closeAddPopup () {
 
 function openPopup (popup) {
     popup.classList.add('popup_opened');
+    document.addEventListener('keydown', closeEscape);
 }
 
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
+    document.addEventListener('keydown', closeEscape);
 }
 
 function formSubmitHandler (event) {
@@ -111,6 +113,18 @@ function closePhotoPopup () {
     closePopup(popupPhoto);
 }
 
+function closeEscape (evt) {
+  const openedPopup = document.querySelector('.popup_opened');
+  if (evt.key === 'Escape') {
+    closePopup(openedPopup);
+  }
+}
+
+function closePopupOverlay (evt) {
+  if (evt.target.classList.contains('popup_opened')) {
+    closePopup(evt.target);
+  }
+}
 
 popupFormEdit.addEventListener('submit', formSubmitHandler);
 addForm.addEventListener('submit', formAddSubmitHandler);
@@ -119,4 +133,7 @@ closeEditButton.addEventListener('click', closeEditPopup);
 addButton.addEventListener('click', openAddPopup);
 closeAddButton.addEventListener('click', closeAddPopup);
 popupPhotoCloseButton.addEventListener('click', closePhotoPopup);
+popupEdit.addEventListener('click', closePopupOverlay);
+popupAdd.addEventListener('click', closePopupOverlay);
+popupPhoto.addEventListener('click', closePopupOverlay);
 

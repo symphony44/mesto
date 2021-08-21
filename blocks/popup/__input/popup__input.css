@@ -7,13 +7,12 @@
     line-height: 16.94px;
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, .2);
-    margin-bottom: 30px;
     outline: none;
     padding-bottom: 13px;
 }      
 
 .popup__input:last-of-type {
-    margin-bottom: 48px;
+    margin-top: 29px;
 }
 
 .popup__input:focus {

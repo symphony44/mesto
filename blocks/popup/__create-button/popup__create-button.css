@@ -8,6 +8,7 @@
     line-height: 21.78px;
     cursor: pointer;
     border: none;
+    margin-top: 31px;
 }
 
 .popup__create-button:hover {
