@@ -20,8 +20,9 @@ const popupPhotoPhoto = popupPhoto.querySelector('.popup-photo__photo');
 const popupPhotoCaption = popupPhoto.querySelector('.popup-photo__caption')
 const popupEdit = document.querySelector('.popup-edit');
 const popup = document.querySelector('.popup');
-const popupCreate = document.querySelector('.popup__create-button');
+const popupCreateButton = document.querySelector('.popup__create-button');
 const popups = document.querySelectorAll('.popup')
+
 
 function addElement(name, link) { 
   const elementsItem = newElement.querySelector('.elements__item').cloneNode(true); 
@@ -105,7 +106,6 @@ function formAddSubmitHandler (event) {
     elementList.prepend(addElement(inputPlace.value, inputLink.value));
     closeAddPopup();
     addForm.reset();
-    const popupCreateButton = document.querySelector('.popup__create-button');
     popupCreateButton.classList.add('popup__button_disabled');
     popupCreateButton.disabled = true;
 }
@@ -134,10 +134,7 @@ function closePopupOverlay (evt) {
 popupFormEdit.addEventListener('submit', formSubmitHandler);
 addForm.addEventListener('submit', formAddSubmitHandler);
 editButton.addEventListener('click', openProfilePopup);
-closeEditButton.addEventListener('click', closeEditPopup);
 addButton.addEventListener('click', openAddPopup);
-closeAddButton.addEventListener('click', closeAddPopup);
-popupPhotoCloseButton.addEventListener('click', closePhotoPopup);
 popups.forEach((popup) => {
   popup.addEventListener('click', (evt) => {
       if (evt.target.classList.contains('popup_opened')) {
