@@ -1,33 +1,33 @@
-function showInputError (formElement, inputElement, errorMessage) {
+function showInputError (formElement, inputElement, errorMessage, validationObject) {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-    inputElement.classList.add('popup__input_type_error');
+    inputElement.classList.add(validationObject.inputErrorClass);
     errorElement.textContent = errorMessage;
-    errorElement.classList.add('popup__input-error_active');
+    errorElement.classList.add(validationObject.errorClass);
 }
 
-function hideInputError (formElement, inputElement) {
+function hideInputError (formElement, inputElement, validationObject) {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-    inputElement.classList.remove('popup__input_type_error');
-    errorElement.classList.remove('popup__input-error_active');
+    inputElement.classList.remove(validationObject.inputErrorClass);
+    errorElement.classList.remove(validationObject.errorClass);
     errorElement.textContent = '';
 }
 
-function checkInputValidity (formElement, inputElement) {
+function checkInputValidity (formElement, inputElement, validationObject) {
     if (!inputElement.validity.valid) {
-        showInputError (formElement, inputElement, inputElement.validationMessage);
+        showInputError (formElement, inputElement, inputElement.validationMessage, validationObject);
     } else {
-        hideInputError (formElement, inputElement);
+        hideInputError (formElement, inputElement, validationObject);
     }
 };
 
-function setEventListeners (formElement) {
-    const inputList = Array.from(formElement.querySelectorAll('.form__input'));
-    const buttonElement = formElement.querySelector('.form__submit');
-    toggleButtonState(inputList, buttonElement);
+function setEventListeners (formElement, validationObject) {
+    const inputList = Array.from(formElement.querySelectorAll(validationObject.inputSelector));
+    const buttonElement = formElement.querySelector(validationObject.submitButtonSelector);
+    toggleButtonState(inputList, buttonElement, validationObject);
     inputList.forEach((inputElement) => {
         inputElement.addEventListener('input', function () {
-            checkInputValidity(formElement, inputElement);
-            toggleButtonState(inputList, buttonElement);
+            checkInputValidity(formElement, inputElement, validationObject);
+            toggleButtonState(inputList, buttonElement, validationObject);
         });
     });
 };
@@ -38,25 +38,32 @@ function hasInvalidInput(inputList) {
     });
 }
  
-function toggleButtonState (inputList, buttonElement) {
+function toggleButtonState (inputList, buttonElement, validationObject) {
     if (hasInvalidInput(inputList)) {
-        buttonElement.classList.add('popup__submit-button_inactive');
-        buttonElement.setAttribute('disabled', true);
+        buttonElement.classList.add(validationObject.inactiveButtonClass);
+        buttonElement.disabled = true;
     } else {
-        buttonElement.classList.remove('popup__submit-button_inactive');
-        buttonElement.removeAttribute('disabled');
+        buttonElement.classList.remove(validationObject.inactiveButtonClass);
+        buttonElement.disabled = false;
     }
 }
 
-function enableValidation () {
-    const formList = Array.from(document.querySelectorAll('.popup__form'));
+function enableValidation (validationObject) {
+    const formList = Array.from(document.querySelectorAll(validationObject.formSelector));
     formList.forEach((formElement) => {
         formElement.addEventListener('submit', function (evt) {
-            evt.preventDefault();   
+            evt.preventDefault();
         });
-        setEventListeners(formElement);
+        setEventListeners(formElement, validationObject);
     });
 };
 
-enableValidation();
+enableValidation({
+   formSelector: '.popup__form',
+   inputSelector: '.form__input',
+   submitButtonSelector: '.form__submit',
+   inactiveButtonClass: 'popup__button_disabled',
+   inputErrorClass: 'popup__input_type_error',
+   errorClass: 'popup__error_visible'
+});
 

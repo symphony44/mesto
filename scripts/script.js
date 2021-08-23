@@ -20,6 +20,8 @@ const popupPhotoPhoto = popupPhoto.querySelector('.popup-photo__photo');
 const popupPhotoCaption = popupPhoto.querySelector('.popup-photo__caption')
 const popupEdit = document.querySelector('.popup-edit');
 const popup = document.querySelector('.popup');
+const popupCreate = document.querySelector('.popup__create-button');
+const popups = document.querySelectorAll('.popup')
 
 function addElement(name, link) { 
   const elementsItem = newElement.querySelector('.elements__item').cloneNode(true); 
@@ -88,7 +90,7 @@ function openPopup (popup) {
 
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
-    document.addEventListener('keydown', closeEscape);
+    document.removeEventListener('keydown', closeEscape);
 }
 
 function formSubmitHandler (event) {
@@ -103,6 +105,9 @@ function formAddSubmitHandler (event) {
     elementList.prepend(addElement(inputPlace.value, inputLink.value));
     closeAddPopup();
     addForm.reset();
+    const popupCreateButton = document.querySelector('.popup__create-button');
+    popupCreateButton.classList.add('popup__button_disabled');
+    popupCreateButton.disabled = true;
 }
 
 function openPhotoPopup () {
@@ -114,8 +119,8 @@ function closePhotoPopup () {
 }
 
 function closeEscape (evt) {
-  const openedPopup = document.querySelector('.popup_opened');
   if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
     closePopup(openedPopup);
   }
 }
@@ -133,7 +138,15 @@ closeEditButton.addEventListener('click', closeEditPopup);
 addButton.addEventListener('click', openAddPopup);
 closeAddButton.addEventListener('click', closeAddPopup);
 popupPhotoCloseButton.addEventListener('click', closePhotoPopup);
-popupEdit.addEventListener('click', closePopupOverlay);
-popupAdd.addEventListener('click', closePopupOverlay);
-popupPhoto.addEventListener('click', closePopupOverlay);
+popups.forEach((popup) => {
+  popup.addEventListener('click', (evt) => {
+      if (evt.target.classList.contains('popup_opened')) {
+          closePopup(popup)
+      }
+      if (evt.target.classList.contains('popup__close-button')) {
+        closePopup(popup)
+      }
+  });
+});
+
 
