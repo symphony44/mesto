@@ -81,6 +81,7 @@ function closeAddPopup () {
 function openPopup (popup) {
     popup.classList.add('popup_opened');
     document.addEventListener('keydown', closeEscape);
+    addCardValidate.resetValidation()
 }
 
 function closePopup(popup) {
@@ -99,9 +100,6 @@ function formAddSubmitHandler (event) {
     event.preventDefault();
     elementList.prepend(createCard(inputPlace.value, inputLink.value));
     closeAddPopup();
-    addForm.reset();
-    popupCreateButton.classList.add('popup__button_disabled');
-    popupCreateButton.disabled = true;
 }
 
 function closeEscape (evt) {
