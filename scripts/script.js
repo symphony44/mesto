@@ -43,7 +43,6 @@ const addForm = document.querySelector('#popup__form-add');
 const popupPhoto = document.querySelector('.popup-photo');
 const popupEdit = document.querySelector('.popup-edit');
 const popup = document.querySelector('.popup');
-const popupCreateButton = document.querySelector('.popup__create-button');
 const popups = document.querySelectorAll('.popup')
 
 const editProfileValidate = new FormValidator(validationProperties, popupFormEdit);
@@ -72,6 +71,7 @@ function openEditPopup () {
 
 function openAddPopup () {
   openPopup(popupAdd);
+  addCardValidate.resetValidation();
 }
 
 function closeAddPopup () {
@@ -81,7 +81,6 @@ function closeAddPopup () {
 function openPopup (popup) {
     popup.classList.add('popup_opened');
     document.addEventListener('keydown', closeEscape);
-    addCardValidate.resetValidation()
 }
 
 function closePopup(popup) {
