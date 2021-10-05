@@ -1,0 +1,11 @@
+export const profileName = '.profile__name';
+export const profileDescription = '.profile__description';
+export const elementList = '.elements__items';
+export const templateSelector = '#element-template';
+export const popupPhoto = '.popup-photo';
+export const popupEdit = '.popup-edit';
+export const popupAdd = '.popup-add';
+export const popupFormEdit = document.querySelector('#popup__form-edit');
+export const addForm = document.querySelector('#popup__form-add');
+export const editButton = document.querySelector('.profile__edit-button');
+export const addButton = document.querySelector('.profile__add-button');

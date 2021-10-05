@@ -1,10 +1,14 @@
-import { openPopup, popupPhoto } from "./script.js";
-
 export class Card {
-    constructor(name, link, cardSelector) {
-        this._name = name;
-        this._link = link;
+    constructor({ data, handleCardClick }, cardSelector) {
+        this.name = data.name;
+        this.link = data.link;
         this._cardSelector = cardSelector;
+        this._handleCardClick = handleCardClick;
+        this._elementsItem = this._getTemplate();
+        this._elementPhoto = this._elementsItem.querySelector('.elements__photo');
+        this._elementName = this._elementsItem.querySelector('.elements__name');
+        this._likeButton = this._elementsItem.querySelector('.elements__like-button');
+        this._deleteButton = this._elementsItem.querySelector('.elements__delete-button');
     }
 
     _getTemplate() {
@@ -18,17 +22,9 @@ export class Card {
     }
 
     _generateCard() {
-        this._getTemplate();
-
-        this._elementsItem = this._getTemplate();
-        this._elementPhoto = this._elementsItem.querySelector('.elements__photo');
-        this._elementName = this._elementsItem.querySelector('.elements__name');
-        this._likeButton = this._elementsItem.querySelector('.elements__like-button');
-        this._deleteButton = this._elementsItem.querySelector('.elements__delete-button');
-
-        this._elementName.textContent = this._name;
-        this._elementPhoto.src = this._link;
-        this._elementPhoto.alt = this._name;
+        this._elementName.textContent = this.name;
+        this._elementPhoto.src = this.link;
+        this._elementPhoto.alt = this.name;
 
         this._setEventListeners();
 
@@ -36,9 +32,9 @@ export class Card {
     }
     
     _setEventListeners() {
-        this._likeButton.addEventListener('click', this._toggleLike);
-        this._elementPhoto.addEventListener('click', () => {this._openCardPhoto(this._link, this._name)});
-        this._deleteButton.addEventListener('click', this._removeElement);
+        this._likeButton.addEventListener('click', this._toggleLike.bind(this));
+        this._elementPhoto.addEventListener('click', this._handleCardClick.bind(this));
+        this._deleteButton.addEventListener('click', this._removeElement.bind(this));
     }
 
     _toggleLike(event) {
@@ -47,18 +43,6 @@ export class Card {
 
     _removeElement(event) {
         event.target.closest('.elements__item').remove();
-      }  
-
-    _openCardPhoto() {
-        const popupPhotoPhoto = document.querySelector('.popup-photo__photo');
-        const popupPhotoCaption = document.querySelector('.popup-photo__caption');
-
-        popupPhotoPhoto.src  = this._link;
-        popupPhotoPhoto.alt = this._name;
-        popupPhotoCaption.textContent = this._name;
-
-        openPopup(popupPhoto);
-    }
-
+      }
 };
 
