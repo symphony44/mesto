@@ -14,6 +14,7 @@
 
     close() {
         this._popup.classList.remove('popup_opened');
+        document.removeEventListener('keydown', this._escCloseCb);
     }
 
     _escClose(evt) {

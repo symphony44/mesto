@@ -1,5 +1,7 @@
 export const profileName = '.profile__name';
 export const profileDescription = '.profile__description';
+export const inputName = document.querySelector('.popup__input_type_name');
+export const inputDescription = document.querySelector('.popup__input_type_description');
 export const elementList = '.elements__items';
 export const templateSelector = '#element-template';
 export const popupPhoto = '.popup-photo';

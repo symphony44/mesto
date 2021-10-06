@@ -21,7 +21,7 @@ export class Card {
         return cardElement;
     }
 
-    _generateCard() {
+    generateCard() {
         this._elementName.textContent = this.name;
         this._elementPhoto.src = this.link;
         this._elementPhoto.alt = this.name;

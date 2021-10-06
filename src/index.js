@@ -1,6 +1,8 @@
 import {
     profileName,
     profileDescription,
+    inputName,
+    inputDescription,
     elementList,
     templateSelector,
     popupPhoto,
@@ -10,15 +12,15 @@ import {
     addForm,
     editButton,
     addButton
-  } from './scripts/utils/constants.js';
+  } from './utils/constants.js';
 
-import { initialCards } from './scripts/utils/initial-cards.js';
-import { Card } from './scripts/components/Card.js'
-import { FormValidator, validationProperties } from './scripts/components/FormValidator.js';
-import { Section } from './scripts/components/Section.js';
-import { PopupWithImage } from './scripts/components/PopupWithImage.js';
-import { PopupWithForm } from './scripts/components/PopupWithForm.js';
-import { UserInfo } from './scripts/components/UserInfo.js';
+import { initialCards } from './utils/initial-cards.js';
+import { Card } from './components/Card.js'
+import { FormValidator, validationProperties } from './components/FormValidator.js';
+import { Section } from './components/Section.js';
+import { PopupWithImage } from './components/PopupWithImage.js';
+import { PopupWithForm } from './components/PopupWithForm.js';
+import { UserInfo } from './components/UserInfo.js';
 import './pages/index.css';
   
 const editProfileValidate = new FormValidator(validationProperties, popupFormEdit);
@@ -43,9 +45,10 @@ function newCard(item) {
       handleCardClick: () => handleCardClick(item)
     }, templateSelector);
   
-const cardElement = card._generateCard(item);
-cardList.addItem(cardElement);
-  }
+const cardElement = card.generateCard(item);
+cardList.addItem(cardElement);  
+}
+
 // Юзеринфо
 const aboutUser = new UserInfo({
     name: profileName,
@@ -56,19 +59,19 @@ const aboutUser = new UserInfo({
 const popupEditProfile = new PopupWithForm({
     formSubmitHandler: (item) => {
       aboutUser.setUserInfo(item);
-      popupEditProfile.close();
     }
   }, popupEdit); 
   
 const popupAddCard = new PopupWithForm({
     formSubmitHandler: (item) => {
        newCard(item);
-       popupAddCard.close();
     }
   }, popupAdd);
   
 function openPopupEdit() {
-    popupEditProfile.setInputValues(aboutUser.getUserInfo());
+    const userData = aboutUser.getUserInfo()
+    inputName.value = userData.name;
+    inputDescription.value = userData.description;
     editProfileValidate.resetValidation();
     popupEditProfile.open();
   }

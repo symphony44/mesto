@@ -4,8 +4,7 @@
   "description": "Проект, знакомящий нас с интересными туристическими местами по всей России.",
   "main": "index.js",
   "dependencies": {
-    "core-js": "^3.18.0",
-    "jquery": "^3.6.0"
+    "core-js": "^3.18.0"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",
