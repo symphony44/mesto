@@ -69,11 +69,8 @@ const popupAddCard = new PopupWithForm({
   }, popupAdd);
   
 function openPopupEdit() {
-    const userData = aboutUser.getUserInfo()
-    inputName.value = userData.name;
-    inputDescription.value = userData.description;
     editProfileValidate.resetValidation();
-    popupEditProfile.open();
+    popupEditProfile.open(aboutUser.getUserInfo());
   }
   
 function openPopupAdd() {

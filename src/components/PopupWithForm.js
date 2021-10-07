@@ -18,6 +18,13 @@ export class PopupWithForm extends Popup {
         return this._inputs;
     }
 
+    _setInputValues (data) { 
+        Object.keys(data).forEach(name => { 
+          const input = this._formElement.querySelector('input[name="description"]');  // Не совсем понял на этой строчке в Вашем коде строку (input[name=${name}]).
+          if (input) input.value = data[name];                                          // Я так понял, это jQuery, но не совсем понимаю как её переписать на JS для обоих inputs.
+        })                                                                              //
+    }
+
     _submitForm(evt) {
         evt.preventDefault();
         this._formSubmitHandler(this._getInputValues());
@@ -32,5 +39,12 @@ export class PopupWithForm extends Popup {
     close() {
         super.close();
         this._formElement.reset();
+    }
+
+    open(data) { 
+        if (data) { 
+          this._setInputValues(data); 
+        } 
+        super.open(); 
     }
 }
