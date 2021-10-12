@@ -14,13 +14,14 @@
     <main class="content">
         <section class="profile">
             <div class="profile__info">
-                <img class="profile__photo" src="<%=require('./images/jacque_photo.jpg')%>" alt="фотография Жака-Ив Кусто">
+                <div class="profile__edit-avatar"></div>
+                <img class="profile__photo" src="#" alt="фотография Жака-Ив Кусто">
                 <div class="profile__text">
                     <div class="profile__info-top">
-                        <h1 class="profile__name">Жак-Ив Кусто</h1>
+                        <h1 class="profile__name"></h1>
                         <button class="button profile__edit-button" type="button" aria-label="кнопка редактирования профиля"></button>
                     </div>    
-                        <p class="profile__description">Исследователь океана</p>
+                        <p class="profile__description"></p>
                 </div>        
             </div>
             <button class="button profile__add-button" type="button" aria-label="кнопка добавления новой карточки"></button>
@@ -45,6 +46,17 @@
             <button class="button popup__close-button popup-edit__close-button" type="button" aria-label="кнопка закрытия редактирования профиля"></button>
         </div>
     </div>
+    <div class="popup popup-avatar">
+        <div class="popup__container popup-avatar__container">
+            <button class="button popup__close-button popup-avatar__close-button" type="button"></button>
+            <h2 class="popup__container-title popup-avatar__container-title">Обновить аватар</h2>
+            <form class="popup__form form popup-avatar__form">
+                <input class="popup__input popup__input_type_avatar form__input" type="url" required placeholder="Обновите аватар" id="avatar-input" name="avatar">
+                <span class="popup__error popup__form-avatar-error avatar-input-error"></span>
+                <button class="button popup-avatar__add-button form__submit" type="submit">Сохранить</button>
+            </form>
+        </div>
+    </div>
     <div class="popup popup-add">
         <div class="popup__container">
             <h2 class="popup__container-title">Новое место</h2>
@@ -67,13 +79,25 @@
             </figure>
         </div>
     </div>
+    <div class="popup popup-delete">
+        <div class="popup__container popup-delete__container">
+            <button class="button popup-delete__close-button popup__close-button" type="button"></button>
+            <h2 class="popup__container-title popup__delete-title">Вы уверены?</h2>
+            <form class="popup-delete__form form popup__form">
+                <button class="button popup-delete__button form__submit" type="submit">Да</button>
+            </form>
+        </div>
+    </div>
     <template id="element-template" class="element-template">
         <li class="elements__item">
             <button class="button elements__delete-button" type="button" aria-label="кнопка удаления карточки"></button>
             <img class="elements__photo" src="#" alt="">
             <div class="elements__description">
                 <h2 class="elements__name"></h2>
-                <button class="button elements__like-button" type="button" aria-label="кнопка лайка"></button>
+                <div class="elements__like-container">
+                    <button class="button elements__like-button" type="button" aria-label="кнопка лайка"></button>
+                    <p class="elements__like-count">0</p>
+                </div>
             </div>
         </li>
     </template>

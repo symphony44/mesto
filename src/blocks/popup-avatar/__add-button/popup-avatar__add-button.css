@@ -1,0 +1,24 @@
+.popup-avatar__add-button {
+    height: 50px;
+    background-color: #000000;
+    color: #ffffff;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 21.78px;
+    cursor: pointer;
+    border: none;
+    margin-top: 48px;
+}
+
+.popup-avatar__add-button:hover {
+    transition: .2s linear;
+    opacity: .8;
+}
+
+@media screen and (max-width: 425px) {
+    .popup-avatar__add-button {
+        font-size: 14px;
+        line-height: 16.94px;
+    }
+}

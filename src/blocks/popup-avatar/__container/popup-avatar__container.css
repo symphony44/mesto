@@ -1,0 +1,18 @@
+.popup-avatar__container {
+    background-color: #ffffff;
+    position: relative;
+    width: 430px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 34px 36px 37px;
+    box-sizing: border-box;
+}
+
+
+@media screen and (max-width: 500px) {
+    .popup-avatar__container {
+        width: calc(100% - 38px);
+        padding: 25px 22px;
+    }
+}
