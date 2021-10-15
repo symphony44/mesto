@@ -16,6 +16,6 @@
 **Системные требования**  
 *HTML5*, *CSS* и *Java Script*
 
-**Ссылка на GitHub Pages** -> На 9ом спринте.
+**Ссылка на GitHub Pages** -> [Клик](https://symphony44.github.io/mesto/)
 
 
