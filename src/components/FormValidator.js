@@ -35,19 +35,19 @@ class FormValidator {
         errorElement.textContent = '';
     }
 
-    _toggleButtonState (buttonElement) {
+    _toggleButtonState () {
         if (this._hasInvalidInput()) {
-            buttonElement.classList.add(this._inactiveButtonClass);
-            buttonElement.disabled = true;
+            this._buttonElement.classList.add(this._inactiveButtonClass);
+            this._buttonElement.disabled = true;
         } else {
-            buttonElement.classList.remove(this._inactiveButtonClass);
-            buttonElement.disabled = false;
+            this._buttonElement.classList.remove(this._inactiveButtonClass);
+            this._buttonElement.disabled = false;
         }
     }
 
     resetValidation() {
-        this._formElement.querySelector(this._button).setAttribute('disabled', true);
-        this._formElement.querySelector(this._button).classList.add(this._inactiveButtonClass);
+        this._buttonElement.setAttribute('disabled', true);
+        this._buttonElement.classList.add(this._toggleButtonState());
         this._inputList.forEach((inputElement) => {
             this._hideInputError(inputElement)
           });
@@ -79,14 +79,5 @@ class FormValidator {
 
 }
 
-const validationProperties = {
-    formSelector: '.popup__form',
-    inputSelector: '.form__input',
-    submitButtonSelector: '.form__submit',
-    inactiveButtonClass: 'popup__button_disabled',
-    inputErrorClass: 'popup__input_type_error',
-    errorClass: 'popup__error_visible'
- }
-
- export { FormValidator, validationProperties };
+ export { FormValidator };
 

@@ -41,7 +41,6 @@
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/popup/__error/_visible/popup__error_visible.css);
 @import url(../blocks/popup/__input/_type/_error/popup__input_type_error.css);
-@import url(../blocks/popup/__button/_disabled/popup__button_disabled.css);
 /* 9th sprint */
 @import url(../blocks/elements/__like-container/elements__like-container.css);
 @import url(../blocks/elements/__like-count/elements__like-count.css);
@@ -50,3 +49,4 @@
 @import url(../blocks/popup-avatar/__container/popup-avatar__container.css);
 @import url(../blocks/popup-avatar/__container-title/popup-avatar__container-title.css);
 @import url(../blocks/profile/__edit-avatar/profile__edit-avatar.css);
+@import url(../blocks/popup/__button/_disabled/popup__button_disabled.css);

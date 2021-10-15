@@ -41,7 +41,7 @@
                 <span class="popup__error popup__form-name-error name-input-error"></span>
                 <input class="popup__input popup__input_type_description form__input" required placeholder="И это обязательное поле" id="description-input" name="description" type="text" minlength="2" maxlength="200">
                 <span class="popup__error popup__form-description-error description-input-error"></span>
-                <button class="button popup__save-button form__submit" type="submit" aria-label="кнопка сохранения редактирования профиля">Сохранить</button>
+                <button class="button popup__save-button form__submit" id="popup-edit__submit-button" type="submit" aria-label="кнопка сохранения редактирования профиля">Сохранить</button>
             </form>
             <button class="button popup__close-button popup-edit__close-button" type="button" aria-label="кнопка закрытия редактирования профиля"></button>
         </div>
@@ -50,10 +50,10 @@
         <div class="popup__container popup-avatar__container">
             <button class="button popup__close-button popup-avatar__close-button" type="button"></button>
             <h2 class="popup__container-title popup-avatar__container-title">Обновить аватар</h2>
-            <form class="popup__form form popup-avatar__form">
+            <form class="popup__form form" id="popup__form-avatar">
                 <input class="popup__input popup__input_type_avatar form__input" type="url" required placeholder="Обновите аватар" id="avatar-input" name="avatar">
                 <span class="popup__error popup__form-avatar-error avatar-input-error"></span>
-                <button class="button popup-avatar__add-button form__submit" type="submit">Сохранить</button>
+                <button class="button popup-avatar__add-button form__submit" id="popup-avatar__submit-button" type="submit">Сохранить</button>
             </form>
         </div>
     </div>
@@ -65,7 +65,7 @@
                 <span class="popup__error popup__form-place-error place-input-error"></span>
                 <input class="popup__input popup__input_type_link form__input"  required placeholder="Ссылка на картинку" id="link-input" name="link" type="url">
                 <span class="popup__error popup__form-link-error link-input-error"></span>
-                <button class="button popup__create-button form__submit" type="submit" aria-label="кнопка создания новой карточки">Создать</button>
+                <button class="button popup__create-button form__submit" id="popup-add__submit-button" type="submit" aria-label="кнопка создания новой карточки">Создать</button>
             </form>
             <button class="button popup__close-button popup-add__close-button" type="button" aria-label="кнопка закрытия добавления карточки"></button>
         </div>
@@ -84,7 +84,7 @@
             <button class="button popup-delete__close-button popup__close-button" type="button"></button>
             <h2 class="popup__container-title popup__delete-title">Вы уверены?</h2>
             <form class="popup-delete__form form popup__form">
-                <button class="button popup-delete__button form__submit" type="submit">Да</button>
+                <button class="button popup-delete__button form__submit" id="popup-delete__submit-button" type="submit">Да</button>
             </form>
         </div>
     </div>

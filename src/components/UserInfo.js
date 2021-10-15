@@ -16,5 +16,6 @@ export class UserInfo {
         this._nameElement.textContent = data.name;
         this._descriptionElement.textContent = data.about;
         this._avatarElement.src = data.avatar;
+        this._id = data.id;
     }
 }
