@@ -82,7 +82,7 @@ return cardElement;
 
 // Переключение лайка ---
 function toggleLike(card, cardElement) {
-  if (!card.likeButton.classList.contains('elements__like-button_active')) {
+  if (!card.ifCardLiked()) {
     const likeCard = api.addLike(cardElement.cardId);
     likeCard
       .then((res) => {

@@ -24,6 +24,14 @@ export class Card {
           }
     }
 
+    ifCardLiked() {
+        if (this.likeButton.classList.contains('elements__like-button_active')) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
     _getTemplate() {
         const cardElement = document
@@ -47,6 +55,7 @@ export class Card {
         this._elementName.textContent = this.name;
         this._elementPhoto.src = this.link;
         this._elementPhoto.alt = this.name;
+        
         
         this._checkIfLiked()
         this._setEventListeners();
